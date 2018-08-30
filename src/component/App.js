@@ -8,10 +8,10 @@ const App = () => (
     <Main />
   </div>
 )
-
+//==============================================================================
 const Main = () => (
   <main>
-  
+
     <Switch>
       <Route exact path='/' component={Houses}/>
       <Route path='/:number' component={HouseView}/>
@@ -19,7 +19,7 @@ const Main = () => (
   </main>
 )
 
-
+//==============================================================================
 
 const Houses = () => (
   <div>
@@ -35,7 +35,7 @@ const Houses = () => (
       </ul>
  </div>
 )
-
+//==============================================================================
 
 const HouseView = (props) => {
   let house = HarryPotterAPI.get(
@@ -51,7 +51,7 @@ const HouseView = (props) => {
   )
 }
 
-
+//==============================================================================
 // hardcode for practice
 const HarryPotterAPI = {
   houses: [
