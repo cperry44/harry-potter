@@ -1,21 +1,32 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import axios from "axios";
 
 
+class HouseList extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-class App extends Component {
 
-
-
-  render(){
+  render() {
     Infohpapi()
     Infopotterapi()
     console.log(harryPotterSpells.all)
     return(
       <div>
-      <h1>hello</h1>
-
+        <div id="appTitle">
+          <h1>Harry Potter Yearbook</h1>
+        </div>
+        <td class="houseNames">
+          Gryffindor
+          Ravenclaw
+          Hufflepuff
+          Slytherin
+        </td>
       </div>
+
     )
   }
 
@@ -24,7 +35,6 @@ class App extends Component {
 const harryPotterSpells = require('harry-potter-spells')
 
 function Infohpapi () {
-
   const  request =
    axios.get(`http://hp-api.herokuapp.com/api/characters`);
 
@@ -49,4 +59,4 @@ function Infopotterapi () {
 }
 
 
-export default App;
+export default HouseList;
