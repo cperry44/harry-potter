@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 import axios from "axios";
+import Gryffindor from "../houses/Gryffindor.js"
+
+import '../index.css';
 
 const App = () => (
   <div>
@@ -10,8 +13,7 @@ const App = () => (
 )
 //==============================================================================
 const Main = () => (
-  <main>
-
+  <main id="body" >
     <Switch>
       <Route exact path='/' component={Houses}/>
       <Route path='/:number' component={HouseView}/>
@@ -24,11 +26,12 @@ const Main = () => (
 const Houses = () => (
   <div>
       <h1 id="title">Harry Potter Yearbook</h1>
-      <ul>
+      <ul class="text-color-white" >
         {
           HarryPotterAPI.all().map(h => (
-            <li key={h.name}>
-              <Link to={`/${h.number}`}>{h.name}</Link>
+            <li key={h.name} id={h.name}>
+              <Link to={`/${h.number}`}><img src={h.image} /></Link>
+              <h3>{h.name}</h3>
             </li>
           ))
         }
@@ -46,7 +49,9 @@ const HouseView = (props) => {
   }
   return (
   <div>
-
+    <Link to = "/">Back</Link>
+    <h1>{house.name}</h1>
+    <Gryffindor />
   </div>
   )
 }
@@ -55,10 +60,11 @@ const HouseView = (props) => {
 // hardcode for practice
 const HarryPotterAPI = {
   houses: [
-    { number: 1, name: "Gryffindor"},
-    { number: 2, name: "Ravenclaw"},
-    { number: 3, name: "Hufflepuff"},
-    { number: 4, name: "Slytherin"}
+    { number: 1, name: "Gryffindor",image:
+    "https://img00.deviantart.net/6636/i/2013/340/9/5/gryffindor_crest_by_needs_more_coffee-d6x0p36.jpg"},
+    { number: 2, name: "Ravenclaw", image: "http://fc02.deviantart.net/fs70/i/2013/340/b/e/ravenclaw_crest_by_needs_more_coffee-d6x0qru.jpg"},
+    { number: 3, name: "Hufflepuff", image: "https://img00.deviantart.net/7642/i/2013/340/9/8/hufflepuff_crest_by_needs_more_coffee-d6x0m45.jpg" },
+    { number: 4, name: "Slytherin", image: "https://img00.deviantart.net/e815/i/2013/340/f/a/slytherin_crest_by_needs_more_coffee-d6x0q5d.jpg"}
   ],
   all: function() { return this.houses},
   get: function(id) {
