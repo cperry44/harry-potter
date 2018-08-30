@@ -1,62 +1,79 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 import axios from "axios";
 
+const App = () => (
+  <div>
+    <Main />
+  </div>
+)
 
-class HouseList extends Component {
-  constructor(props) {
-    super(props);
+const Main = () => (
+  <main>
+  
+    <Switch>
+      <Route exact path='/' component={Houses}/>
+      <Route path='/:number' component={HouseView}/>
+    </Switch>
+  </main>
+)
+
+
+
+const Houses = () => (
+  <div>
+      <h1 id="title">Harry Potter Yearbook</h1>
+      <ul>
+        {
+          HarryPotterAPI.all().map(h => (
+            <li key={h.name}>
+              <Link to={`/${h.number}`}>{h.name}</Link>
+            </li>
+          ))
+        }
+      </ul>
+ </div>
+)
+
+
+const HouseView = (props) => {
+  let house = HarryPotterAPI.get(
+    parseInt(props.match.params.number, 10)
+  )
+  if (!house) {
+    return <div>Back off, Muggle! There are only four Hogwarts Houses</div>
   }
+  return (
+  <div>
+
+  </div>
+  )
+}
 
 
-  render() {
-    Infohpapi()
-    Infopotterapi()
-    console.log(harryPotterSpells.all)
-    return(
-      <div>
-        <div id="appTitle">
-          <h1>Harry Potter Yearbook</h1>
-        </div>
-        <td class="houseNames">
-          Gryffindor
-          Ravenclaw
-          Hufflepuff
-          Slytherin
-        </td>
-      </div>
-
-    )
+// hardcode for practice
+const HarryPotterAPI = {
+  houses: [
+    { number: 1, name: "Gryffindor"},
+    { number: 2, name: "Ravenclaw"},
+    { number: 3, name: "Hufflepuff"},
+    { number: 4, name: "Slytherin"}
+  ],
+  all: function() { return this.houses},
+  get: function(id) {
+    const isHouse = h => h.number === id
+    return this.houses.find(isHouse)
   }
-
-}
-
-const harryPotterSpells = require('harry-potter-spells')
-
-function Infohpapi () {
-  const  request =
-   axios.get(`http://hp-api.herokuapp.com/api/characters`);
-
-    console.log("request", request);
-
-  return{ payload: request}
-}
-
-function Infopotterapi () {
-
-  const key= "$2a$10$O4hd7lWpr2K95sV68FMW/uWbh54LNxWort6gLLPiPJ47bNY2F9t82";
-  const url = "https://www.potterapi.com/v1/";
-  const search = "houses"
-  const request2= axios.get(`${url}${search}?key=${key}`);
-
-
-    //`${url}/characters?key=${key}`);
-
-    console.log("request2:", request2);
-
-  return{ payload: request2}
 }
 
 
-export default HouseList;
+
+
+
+
+
+
+
+
+export default App;
