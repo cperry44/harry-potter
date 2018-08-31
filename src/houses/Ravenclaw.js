@@ -15,32 +15,30 @@ class Ravenclaw extends Component {
 
   fetchFirst(url) {
     let self = this;
-    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C"; // <--- set key
+    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C";
+
     var that = this;
     if (url) {
       fetch(url + "?" + "key=" + key)
       .then(function (response) {
-        //debugger;
+
         response.json().then(function (data) {
-          //debugger;
+
           self.setState({
             result: data
           })
-          console.log(self);
+
         })
       });
     }
   }
 
   getMyData() {
-    //
-    // this.setState({
-    //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
-    // });
+
 
     this.fetchFirst("https://www.potterapi.com/v1/houses/5a05da69d45bd0a11bd5e06f")
-    console.log(this.state);
-    // debugger;
+
+
   }
   render(){
 
@@ -52,7 +50,7 @@ class Ravenclaw extends Component {
 
     let house = this.state.result[0]
     return (
-      <div class = "text-color-white">
+      <div className = "text-color-white">
       <Link to = "/"><button>Back</button></Link>
       <li>House Ghost: {house.houseGhost}</li>
       <li>Head of House: {house.headOfHouse}</li>
@@ -73,7 +71,7 @@ class Ravenclaw extends Component {
 
 
 
-      </div>  //{this.state.result[0]}</div>
+      </div>
 
     );
   }

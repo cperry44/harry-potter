@@ -17,14 +17,15 @@ class Hufflepuff extends Component {
 
   fetchFirst(url) {
     let self = this;
-    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C"; // <--- set key
+    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C";
+
     var that = this;
     if (url) {
       fetch(url + "?" + "key=" + key)
       .then(function (response) {
-        //debugger;
+
         response.json().then(function (data) {
-          //debugger;
+
           self.setState({
             result: data
           })
@@ -35,14 +36,11 @@ class Hufflepuff extends Component {
   }
 
   getMyData() {
-    //
-    // this.setState({
-    //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
-    // });
+
 
     this.fetchFirst("https://www.potterapi.com/v1/houses/5a05dc58d45bd0a11bd5e070")
     console.log(this.state);
-    // debugger;
+
   }
   render(){
 
@@ -74,9 +72,7 @@ class Hufflepuff extends Component {
         </ul>
       </li>
 
-
-
-      </div>  //{this.state.result[0]}</div>
+      </div>  
 
     );
   }

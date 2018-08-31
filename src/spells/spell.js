@@ -9,9 +9,9 @@ import {
   } from "react-router-dom";
 
 
+const harryPotterSpells = require('harry-potter-spells')
 
-
-class Spells extends Component {
+class Spell extends Component {
 
 
   render(){
@@ -19,7 +19,6 @@ class Spells extends Component {
     console.log(harryPotterSpells.all)
     return(
       <div>
-      <Link to = "/"><button>Back</button></Link>
       <h1>Spells</h1>
       <ul>
         {harryPotterSpells.all.map(({name, type, effect}) => (
@@ -42,7 +41,7 @@ class Spells extends Component {
 
 
 
-const harryPotterSpells = require('harry-potter-spells')
 
 
-export default Spells;
+
+export default Spell;
