@@ -35,7 +35,7 @@ const Main = () => (
 //==============================================================================
 
 const Houses = () => (
-  <div class = "text-color-white" >
+  <div class = "text-color-white circle">
       <h1 id="title">Harry Potter Yearbook</h1>
       <ul class="text-color-white" >
         {
@@ -56,9 +56,10 @@ const HarryPotterAPI = {
     { name: "Gryffindor",image:
     "https://img00.deviantart.net/6636/i/2013/340/9/5/gryffindor_crest_by_needs_more_coffee-d6x0p36.jpg"},
     { name: "Ravenclaw", image: "http://fc02.deviantart.net/fs70/i/2013/340/b/e/ravenclaw_crest_by_needs_more_coffee-d6x0qru.jpg"},
+    { name: "Spells", image: "https://vignette.wikia.nocookie.net/harrypotter/images/f/f8/Hogwarts_houses.jpg/revision/latest?cb=20160813020635"},
     { name: "Hufflepuff", image: "https://img00.deviantart.net/7642/i/2013/340/9/8/hufflepuff_crest_by_needs_more_coffee-d6x0m45.jpg" },
-    { name: "Slytherin", image: "https://img00.deviantart.net/e815/i/2013/340/f/a/slytherin_crest_by_needs_more_coffee-d6x0q5d.jpg"},
-    { name: "Spells", image: "https://vignette.wikia.nocookie.net/harrypotter/images/f/f8/Hogwarts_houses.jpg/revision/latest?cb=20160813020635"}
+    { name: "Slytherin", image: "https://img00.deviantart.net/e815/i/2013/340/f/a/slytherin_crest_by_needs_more_coffee-d6x0q5d.jpg"}
+
   ],
   all: function() { return this.houses},
   get: function(id) {

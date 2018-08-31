@@ -38,7 +38,7 @@ class Member extends Component {
   }
 
   getMyData() {
-  
+
 
     this.fetchFirst("https://www.potterapi.com/v1/characters/")
 

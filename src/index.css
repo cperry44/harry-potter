@@ -23,16 +23,17 @@ img {
   border-radius: 50%;
   height: 200px;
   width: 200px;
+  padding: 75px;
 }
 
 
-#fourcrest {
-  display: center;
+#Spells {
+  float: left;
 
 }
 
 #Slytherin {
-  float: right;
+  float: left;
 }
 
 #Gryffindor {
@@ -45,9 +46,18 @@ img {
 }
 
 #Hufflepuff{
-float:right;
+float: left;
 }
 
 .text-color-white {
   color: white;
+}
+
+.circle{
+  text-align: center;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
 }
