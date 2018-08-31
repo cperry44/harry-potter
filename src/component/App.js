@@ -6,7 +6,7 @@ import Gryffindor from "../houses/Gryffindor.js"
 import Ravenclaw from "../houses/Ravenclaw.js"
 import Hufflepuff from "../houses/Hufflepuff.js"
 import Slytherin from "../houses/Slytherin.js"
-import Member from "../characters/member.js"
+import Member from "../members/member.js"
 import '../index.css';
 
 const App = () => (

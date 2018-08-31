@@ -61,8 +61,12 @@ class Member extends Component {
     return (
       <div class = "text-color-white">
       <Link to = "/"><button>Back</button></Link>
-      <li>{member.name}</li>
-      <li>{member.alias}</li>
+      <li>Name: {member.name}</li>
+      <li>Alias: {member.alias}</li>
+      <li>Member of Order of the Phoenix? {member.orderOfThePhoenix ? 'yes':'no'}</li>
+      <li>Member of Dumbledore's Army? {member.dumbledoresArmy ? 'yes':'no'}</li>
+      <li>Death Eater? {member.deathEater ? 'yes':'no'}</li>
+      <li>Ministry of Magic Employee? {member.ministryOfMagic ? 'yes':'no'}</li>
       </div>
 
     );
