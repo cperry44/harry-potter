@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 import axios from "axios";
 import Gryffindor from "../houses/Gryffindor.js"
-
+import Ravenclaw from "../houses/Ravenclaw.js"
+import Hufflepuff from "../houses/Hufflepuff.js"
+import Slytherin from "../houses/Slytherin.js"
 import '../index.css';
 
 const App = () => (
@@ -16,7 +18,10 @@ const Main = () => (
   <main id="body" >
     <Switch>
       <Route exact path='/' component={Houses}/>
-      <Route path='/:number' component={HouseView}/>
+      <Route path='/1' component={Gryffindor}/>
+      <Route path='/2' component={Ravenclaw}/>
+      <Route path='/3' component={Hufflepuff}/>
+      <Route path='/4' component={Slytherin}/>
     </Switch>
   </main>
 )
@@ -24,7 +29,7 @@ const Main = () => (
 //==============================================================================
 
 const Houses = () => (
-  <div>
+  <div class = "text-color-white" >
       <h1 id="title">Harry Potter Yearbook</h1>
       <ul class="text-color-white" >
         {
@@ -44,14 +49,22 @@ const HouseView = (props) => {
   let house = HarryPotterAPI.get(
     parseInt(props.match.params.number, 10)
   )
+  console.log(house)
+  let sorting = "hat"
+
+  switch (house.name) {
+    case "Ravenclaw": let sorting = "hello"; break;
+  }
+
   if (!house) {
     return <div>Back off, Muggle! There are only four Hogwarts Houses</div>
   }
   return (
-  <div>
-    <Link to = "/">Back</Link>
+  <div class = "text-color-white">
+    <Link to = "/"><button>Back</button></Link>
     <h1>{house.name}</h1>
-    <Gryffindor />
+    <p><img src= {house.image} /></p>
+
   </div>
   )
 }
@@ -72,7 +85,6 @@ const HarryPotterAPI = {
     return this.houses.find(isHouse)
   }
 }
-
 
 
 
