@@ -13,41 +13,27 @@ class Gryffindor extends Component {
     };
   }
 
-  // get data from given subreddit
-  // parse data and save it in state
-  // then log data
   fetchFirst(url) {
-    var key = "$2a$10$AOw4tITLgAk.0XHRvE2dPOpSI4xJMRF24or9b/JRUE78PlFy2wM06"; // <--- set key
+    var key = "$2a$10$AOw4tITLgAk.0XHRvE2dPOpSI4xJMRF24or9b/JRUE78PlFy2wM06";
     var that = this;
     if (url) {
       fetch(url + "?" + "key=" + key)
-      // promise: when ajax request returns, pass returned string as 'response'
-      // convert 'response' string into json object
       .then(function (response) {
         return response.json();
       })
-      // promise: after promise
       .then(function (result) {
         console.log(result);
-        //console.log(result.data.children);
-
-        //that.setState({ posts: result.data.children, lastPostName: result.data.children[result.data.children.length - 1].data.name });
-
-        //console.log(that.state.posts);
       });
     }
   }
 
-  // when this component loads, call fetchFirst()
   componentWillMount() {
 
       this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f");
 
   }
   render() {
-
     return (
-
       <div className="App">
 
 

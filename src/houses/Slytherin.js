@@ -18,7 +18,7 @@ class Slytherin extends Component {
     var that = this;
     if (url) {
       fetch(url + "?" + "key=" + key)
-      .then(function (response) {
+      .then(function  (response) {
         return response.json();
       })
 
