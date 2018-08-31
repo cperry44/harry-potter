@@ -51,6 +51,7 @@ float: left;
 
 .text-color-white {
   color: white;
+  text-align: center;
 }
 
 .circle{
@@ -60,4 +61,5 @@ float: left;
 
 li {
   list-style-type: none;
+  font-size: 20px;
 }
