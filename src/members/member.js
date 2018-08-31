@@ -23,8 +23,9 @@ class Member extends Component {
     let self = this;
     var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C"; // <--- set key
     var that = this;
+    var id = this.props.match.params.id;
     if (url) {
-      fetch(url + "?" + "key=" + key)
+      fetch(url + id + "?" + "key=" + key)
       .then(function (response) {
         //debugger;
         response.json().then(function (data) {
@@ -44,7 +45,7 @@ class Member extends Component {
     //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
     // });
 
-    this.fetchFirst("https://www.potterapi.com/v1/characters")
+    this.fetchFirst("https://www.potterapi.com/v1/characters/")
     console.log(this.state);
     // debugger;
   }
@@ -53,16 +54,16 @@ class Member extends Component {
     if(this.state.result == null || this.state.result == undefined || Object.keys(this.state.result).length == 0) {
       this.getMyData()
       return (
-        <div>loading...</div>)
+        <div>...loading</div>)
     }
 
-    let house = this.state.result[0]
+    let member = this.state.result
     return (
       <div class = "text-color-white">
       <Link to = "/"><button>Back</button></Link>
-      <li>Sirius Black</li>
-      <li>
-      </div>  //{this.state.result[0]}</div>
+      <li>{member.name}</li>
+      <li>{member.alias}</li>
+      </div>
 
     );
   }

@@ -60,7 +60,7 @@ class Gryffindor extends Component {
       <li>Founder: {house.founder}</li>
       <li>Mascot: {house.mascot}</li>
       <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
-      <li>House members: <Link to={'/member/' + house.members[2]._id}>{house.members[2].name}</Link>, {house.members[7].name}, {house.members[9].name}, {house.members[11].name}, {house.members[17].name}, & {house.members[21].name}</li>
+      <li>House members: <Link to={'/member/' + house.members[2]._id}>{house.members[2].name}</Link>, <Link to={'/member/' + house.members[7]._id}>{house.members[7].name}</Link>, {house.members[9].name}, {house.members[11].name}, {house.members[17].name}, & {house.members[21].name}</li>
 
       </div>  //{this.state.result[0]}</div>
 
