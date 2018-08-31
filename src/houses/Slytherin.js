@@ -1,6 +1,6 @@
-
 import React, { Component } from 'react';
-
+import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 
 
 class Slytherin extends Component {
@@ -9,40 +9,67 @@ class Slytherin extends Component {
     super(props);
 
     this.state = {
-      posts: []
+      result: {}
     };
+
   }
 
   fetchFirst(url) {
-    var key = "$2a$10$AOw4tITLgAk.0XHRvE2dPOpSI4xJMRF24or9b/JRUE78PlFy2wM06"; // <--- set key
+    let self = this;
+    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C"; // <--- set key
     var that = this;
     if (url) {
       fetch(url + "?" + "key=" + key)
       .then(function (response) {
-        return response.json();
-      })
-
-      .then(function (result) {
-        console.log(result);
+        //debugger;
+        response.json().then(function (data) {
+          //debugger;
+          self.setState({
+            result: data
+          })
+          console.log(self);
+        })
       });
     }
   }
 
-  componentWillMount() {
+  getMyData() {
+    //
+    // this.setState({
+    //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
+    // });
 
-      this.fetchFirst("https://www.potterapi.com/v1/houses/5a05dc8cd45bd0a11bd5e071");
-
+    this.fetchFirst("https://www.potterapi.com/v1/houses/5a05dc8cd45bd0a11bd5e071")
+    console.log(this.state);
+    // debugger;
   }
-  render() {
+  render(){
 
+    if(this.state.result == null || this.state.result == undefined || Object.keys(this.state.result).length == 0) {
+      this.getMyData()
+      return (
+        <div>loading...</div>)
+    }
+
+    let house = this.state.result[0]
     return (
+      <div class= "text-color-white">
+      <Link to = "/"><button>Back</button></Link>
+      <li>House Ghost: {house.houseGhost}</li>
+      <li>Head of House: {house.headOfHouse}</li>
+      <li>Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>
+      <li>Founder: {house.founder}</li>
+      <li>Mascot: {house.mascot}</li>
+      <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
+      <li>House members: {house.members[7].name}, {house.members[10].name}, {house.members[15].name}, {house.members[18].name}, & {house.members[20].name} </li>
 
-      <div className="App">
 
 
-      </div>
+
+      </div>  //{this.state.result[0]}</div>
+
     );
   }
 }
 
-export default Syltherin;
+export default Slytherin;
