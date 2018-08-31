@@ -6,6 +6,7 @@ import Gryffindor from "../houses/Gryffindor.js"
 import Ravenclaw from "../houses/Ravenclaw.js"
 import Hufflepuff from "../houses/Hufflepuff.js"
 import Slytherin from "../houses/Slytherin.js"
+import Member from "../members/member.js"
 import '../index.css';
 
 const App = () => (
@@ -22,6 +23,7 @@ const Main = () => (
       <Route path='/2' component={Ravenclaw}/>
       <Route path='/3' component={Hufflepuff}/>
       <Route path='/4' component={Slytherin}/>
+      <Route path='/member/:id' component={Member}/>
     </Switch>
   </main>
 )
