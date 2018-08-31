@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 import axios from "axios";
-import Gryffindor from "../houses/Gryffindor.js"
-
+import Gryffindor from "./houses/Gryffindor.js"
+import Ravenclaw from "./houses/Ravenclaw.js"
+import Hufflepuff from "./houses/Hufflepuff.js"
+import Slytherin from "./houses/Slytherin.js"
 import '../index.css';
 
 const App = () => (
@@ -16,7 +18,10 @@ const Main = () => (
   <main id="body" >
     <Switch>
       <Route exact path='/' component={Houses}/>
-      <Route path='/:number' component={HouseView}/>
+      <Route path='/1' component={Gryffindor}/>
+      <Route path='/2' component={Ravenclaw}/>
+      <Route path='/3' component={Hufflepuff}/>
+      <Route path='/4' component={Slytherin}/>
     </Switch>
   </main>
 )
