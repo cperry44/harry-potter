@@ -1,7 +1,29 @@
+<<<<<<< HEAD
+=======
+a:link {
+   text-decoration: none;
+   color: white;
+   background-color: transparent;
+}
+a:visited {
+   text-decoration: none;
+   color: white;
+   background-color: transparent;
+}
+
+
+>>>>>>> ca78b663400a602ef2d641e636c69bbb67342fd8
 #body {
   background-image: url("https://wallpaper-house.com/data/out/8/wallpaper2you_245219.jpg");
+
   width: 100%;
+<<<<<<< HEAD
   height:100vh;
+=======
+  height:200vh;
+
+
+>>>>>>> ca78b663400a602ef2d641e636c69bbb67342fd8
 }
 
 img {
@@ -12,11 +34,16 @@ img {
 
 
 #fourcrest {
+<<<<<<< HEAD
   position: absolute;
   top: 50%;
   left: 50%;
   margin-left: [-50% of your image's width];
   margin-top: [-50% of your image's height];
+=======
+  display: center;
+
+>>>>>>> ca78b663400a602ef2d641e636c69bbb67342fd8
 }
 
 #Slytherin {

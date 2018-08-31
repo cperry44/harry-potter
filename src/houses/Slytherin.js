@@ -16,14 +16,15 @@ class Slytherin extends Component {
 
   fetchFirst(url) {
     let self = this;
-    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C"; // <--- set key
+    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C";
+
     var that = this;
     if (url) {
       fetch(url + "?" + "key=" + key)
       .then(function (response) {
-        //debugger;
+
         response.json().then(function (data) {
-          //debugger;
+
           self.setState({
             result: data
           })
@@ -34,14 +35,11 @@ class Slytherin extends Component {
   }
 
   getMyData() {
-    //
-    // this.setState({
-    //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
-    // });
+
 
     this.fetchFirst("https://www.potterapi.com/v1/houses/5a05dc8cd45bd0a11bd5e071")
     console.log(this.state);
-    // debugger;
+
   }
   render(){
 
@@ -61,12 +59,19 @@ class Slytherin extends Component {
       <li>Founder: {house.founder}</li>
       <li>Mascot: {house.mascot}</li>
       <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
-      <li>House members: {house.members[7].name}, {house.members[10].name}, {house.members[15].name}, {house.members[18].name}, & {house.members[20].name} </li>
+      <li>House members:
+        <ul>
+        {house.members.map((member) => (
+
+          <li key={member._id}>
+            <Link to= {`/member/${member._id}`}>{member.name}</Link>
+          </li>
+          ))}
+        </ul>
+      </li>
 
 
-
-
-      </div>  //{this.state.result[0]}</div>
+      </div>  
 
     );
   }

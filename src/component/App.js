@@ -6,9 +6,15 @@ import Gryffindor from "../houses/Gryffindor.js"
 import Ravenclaw from "../houses/Ravenclaw.js"
 import Hufflepuff from "../houses/Hufflepuff.js"
 import Slytherin from "../houses/Slytherin.js"
+import Member from "../members/member.js"
 import '../index.css';
+<<<<<<< HEAD
 import Sound from "react-sound"
 import Music from "../Sound.js"
+=======
+import Spells from "../spells/spells.js"
+import Spell from "../spells/spell.js"
+>>>>>>> ca78b663400a602ef2d641e636c69bbb67342fd8
 
 const App = () => (
   <div>
@@ -21,10 +27,13 @@ const Main = () => (
   <main id="body" >
     <Switch>
       <Route exact path='/' component={Houses}/>
-      <Route path='/1' component={Gryffindor}/>
-      <Route path='/2' component={Ravenclaw}/>
-      <Route path='/3' component={Hufflepuff}/>
-      <Route path='/4' component={Slytherin}/>
+      <Route path='/Gryffindor' component={Gryffindor}/>
+      <Route path='/Ravenclaw' component={Ravenclaw}/>
+      <Route path='/hufflepuff' component={Hufflepuff}/>
+      <Route path='/Slytherin' component={Slytherin}/>
+      <Route path='/Spells' component={Spells}/>
+      <Route path='/Spells/:name' component={Spell}/>
+      <Route path='/member/:id' component={Member}/>
     </Switch>
   </main>
 )
@@ -38,7 +47,7 @@ const Houses = () => (
         {
           HarryPotterAPI.all().map(h => (
             <li key={h.name} id={h.name}>
-              <Link to={`/${h.number}`}><img src={h.image} /></Link>
+              <Link to={`/${h.name}`}><img src={h.image} /></Link>
               <h3>{h.name}</h3>
             </li>
           ))
@@ -48,39 +57,14 @@ const Houses = () => (
 )
 //==============================================================================
 
-const HouseView = (props) => {
-  let house = HarryPotterAPI.get(
-    parseInt(props.match.params.number, 10)
-  )
-  console.log(house)
-  let sorting = "hat"
-
-  switch (house.name) {
-    case "Ravenclaw": let sorting = "hello"; break;
-  }
-
-  if (!house) {
-    return <div>Back off, Muggle! There are only four Hogwarts Houses</div>
-  }
-  return (
-  <div class = "text-color-white">
-    <Link to = "/"><button>Back</button></Link>
-    <h1>{house.name}</h1>
-    <p><img src= {house.image} /></p>
-
-  </div>
-  )
-}
-
-//==============================================================================
-// hardcode for practice
 const HarryPotterAPI = {
   houses: [
-    { number: 1, name: "Gryffindor",image:
+    { name: "Gryffindor",image:
     "https://img00.deviantart.net/6636/i/2013/340/9/5/gryffindor_crest_by_needs_more_coffee-d6x0p36.jpg"},
-    { number: 2, name: "Ravenclaw", image: "http://fc02.deviantart.net/fs70/i/2013/340/b/e/ravenclaw_crest_by_needs_more_coffee-d6x0qru.jpg"},
-    { number: 3, name: "Hufflepuff", image: "https://img00.deviantart.net/7642/i/2013/340/9/8/hufflepuff_crest_by_needs_more_coffee-d6x0m45.jpg" },
-    { number: 4, name: "Slytherin", image: "https://img00.deviantart.net/e815/i/2013/340/f/a/slytherin_crest_by_needs_more_coffee-d6x0q5d.jpg"}
+    { name: "Ravenclaw", image: "http://fc02.deviantart.net/fs70/i/2013/340/b/e/ravenclaw_crest_by_needs_more_coffee-d6x0qru.jpg"},
+    { name: "Hufflepuff", image: "https://img00.deviantart.net/7642/i/2013/340/9/8/hufflepuff_crest_by_needs_more_coffee-d6x0m45.jpg" },
+    { name: "Slytherin", image: "https://img00.deviantart.net/e815/i/2013/340/f/a/slytherin_crest_by_needs_more_coffee-d6x0q5d.jpg"},
+    { name: "Spells", image: "https://vignette.wikia.nocookie.net/harrypotter/images/f/f8/Hogwarts_houses.jpg/revision/latest?cb=20160813020635"}
   ],
   all: function() { return this.houses},
   get: function(id) {
