@@ -18,10 +18,10 @@ const Main = () => (
   <main id="body" >
     <Switch>
       <Route exact path='/' component={Houses}/>
-      <Route path='/1' component={Gryffindor}/>
-      <Route path='/2' component={Ravenclaw}/>
-      <Route path='/3' component={Hufflepuff}/>
-      <Route path='/4' component={Slytherin}/>
+      <Route exact path='/1' component={Gryffindor}/>
+      <Route exact path='/2' component={Ravenclaw}/>
+      <Route exact path='/3' component={Hufflepuff}/>
+      <Route exact path='/4' component={Slytherin}/>
     </Switch>
   </main>
 )
@@ -31,7 +31,7 @@ const Main = () => (
 const Houses = () => (
   <div>
       <h1 id="title">Harry Potter Yearbook</h1>
-      <ul class="text-color-white" >
+      <ul id="text-color-white" >
         {
           HarryPotterAPI.all().map(h => (
             <li key={h.name} id={h.name}>
@@ -55,7 +55,7 @@ const HouseView = (props) => {
   return (
   <div>
     <Link to = "/">Back</Link>
-    <h1>{house.name}</h1>
+    <li>{house.name}</li>
     <Gryffindor />
   </div>
   )
