@@ -8,6 +8,8 @@ import Hufflepuff from "../houses/Hufflepuff.js"
 import Slytherin from "../houses/Slytherin.js"
 import Member from "../members/member.js"
 import '../index.css';
+import Sound from "react-sound"
+import MyComponentWithSound from "../Sound.js"
 
 const App = () => (
   <div>
