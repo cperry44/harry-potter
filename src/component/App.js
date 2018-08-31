@@ -8,6 +8,8 @@ import Hufflepuff from "../houses/Hufflepuff.js"
 import Slytherin from "../houses/Slytherin.js"
 import Member from "../members/member.js"
 import '../index.css';
+import Spells from "../spells/spells.js"
+import Spell from "../spells/spell.js"
 
 const App = () => (
   <div>
@@ -23,6 +25,8 @@ const Main = () => (
       <Route path='/Ravenclaw' component={Ravenclaw}/>
       <Route path='/hufflepuff' component={Hufflepuff}/>
       <Route path='/Slytherin' component={Slytherin}/>
+      <Route path='/Spells' component={Spells}/>
+      <Route path='/Spells/:name' component={Spell}/>
       <Route path='/member/:id' component={Member}/>
     </Switch>
   </main>
@@ -53,7 +57,8 @@ const HarryPotterAPI = {
     "https://img00.deviantart.net/6636/i/2013/340/9/5/gryffindor_crest_by_needs_more_coffee-d6x0p36.jpg"},
     { name: "Ravenclaw", image: "http://fc02.deviantart.net/fs70/i/2013/340/b/e/ravenclaw_crest_by_needs_more_coffee-d6x0qru.jpg"},
     { name: "Hufflepuff", image: "https://img00.deviantart.net/7642/i/2013/340/9/8/hufflepuff_crest_by_needs_more_coffee-d6x0m45.jpg" },
-    { name: "Slytherin", image: "https://img00.deviantart.net/e815/i/2013/340/f/a/slytherin_crest_by_needs_more_coffee-d6x0q5d.jpg"}
+    { name: "Slytherin", image: "https://img00.deviantart.net/e815/i/2013/340/f/a/slytherin_crest_by_needs_more_coffee-d6x0q5d.jpg"},
+    { name: "Spells", image: "https://vignette.wikia.nocookie.net/harrypotter/images/f/f8/Hogwarts_houses.jpg/revision/latest?cb=20160813020635"}
   ],
   all: function() { return this.houses},
   get: function(id) {
