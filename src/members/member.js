@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 
 
-//the API has unique IDs for characters,
-//so routes for characters are bypassing
-//the house components & going straight through the App
-//this is not best practice LOL
+
 
 class Member extends Component {
 
@@ -21,15 +18,16 @@ class Member extends Component {
 
   fetchFirst(url) {
     let self = this;
-    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C"; // <--- set key
+    var key = "$2a$10$x/NuAd.Z/g65zfgmwaXXPeRj9GipD84aLQRONx.ZbB5OYi9ptYW8C";
+
     var that = this;
     var id = this.props.match.params.id;
     if (url) {
       fetch(url + id + "?" + "key=" + key)
       .then(function (response) {
-        //debugger;
+
         response.json().then(function (data) {
-          //debugger;
+
           self.setState({
             result: data
           })
@@ -40,14 +38,11 @@ class Member extends Component {
   }
 
   getMyData() {
-    //
-    // this.setState({
-    //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
-    // });
+  
 
     this.fetchFirst("https://www.potterapi.com/v1/characters/")
 
-    // debugger;
+
   }
   render(){
 
@@ -58,8 +53,10 @@ class Member extends Component {
     }
 
     let member = this.state.result
-    
+
     return (
+
+
 
       <div class = "text-color-white">
       <Link to = {`/${member.house}`}><button>Back</button></Link>
