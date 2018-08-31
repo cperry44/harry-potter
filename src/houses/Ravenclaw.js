@@ -52,12 +52,12 @@ class Ravenclaw extends Component {
     return (
       <div className = "text-color-white">
       <Link to = "/"><button>Back</button></Link>
-      <li>House Ghost: {house.houseGhost}</li>
-      <li>Head of House: {house.headOfHouse}</li>
-      <li>Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>
-      <li>Founder: {house.founder}</li>
-      <li>Mascot: {house.mascot}</li>
-      <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
+      <li className="text-color-gold">House Ghost: {house.houseGhost}</li>
+      <li className="text-color-gold">Head of House: {house.headOfHouse}</li>
+      <li className="text-color-gold">Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>
+      <li className="text-color-gold">Founder: {house.founder}</li>
+      <li className="text-color-gold">Mascot: {house.mascot}</li>
+      <li className="text-color-gold">House colors: {house.colors[0]} & {house.colors[1]}</li>
       <li>House members:
         <ul>
         {house.members.map((member) => (
