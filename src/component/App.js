@@ -6,6 +6,7 @@ import Gryffindor from "../houses/Gryffindor.js"
 import Ravenclaw from "../houses/Ravenclaw.js"
 import Hufflepuff from "../houses/Hufflepuff.js"
 import Slytherin from "../houses/Slytherin.js"
+import Member from "../characters/member.js"
 import '../index.css';
 
 const App = () => (
@@ -18,10 +19,11 @@ const Main = () => (
   <main id="body" >
     <Switch>
       <Route exact path='/' component={Houses}/>
-      <Route path='/1' component={Gryffindor}/>
-      <Route path='/2' component={Ravenclaw}/>
-      <Route path='/3' component={Hufflepuff}/>
-      <Route path='/4' component={Slytherin}/>
+      <Route exact path='/1' component={Gryffindor}/>
+      <Route exact path='/2' component={Ravenclaw}/>
+      <Route exact path='/3' component={Hufflepuff}/>
+      <Route exact path='/4' component={Slytherin}/>
+      <Route path='/member/:id' component={Member}/>
     </Switch>
   </main>
 )
@@ -85,13 +87,6 @@ const HarryPotterAPI = {
     return this.houses.find(isHouse)
   }
 }
-
-
-
-
-
-
-
 
 
 export default App;
