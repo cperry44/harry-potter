@@ -26,7 +26,7 @@ class Gryffindor extends Component {
           self.setState({
             result: data
           })
-          console.log(self);
+
         })
       });
     }
@@ -39,7 +39,7 @@ class Gryffindor extends Component {
     // });
 
     this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
-    console.log(this.state);
+
     // debugger;
   }
   render(){
@@ -51,18 +51,27 @@ class Gryffindor extends Component {
     }
 
     let house = this.state.result[0]
+    console.log(house.members);
     return (
-      <div class = "text-color-white">
-      <Link to = "/"><button>Back</button></Link>
-      <li>House Ghost: {house.houseGhost}</li>
-      <li>Head of House: {house.headOfHouse}</li>
-      <li>Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>
-      <li>Founder: {house.founder}</li>
-      <li>Mascot: {house.mascot}</li>
-      <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
-      <li>House members: {house.members[2].name}, {house.members[7].name}, {house.members[9].name}, {house.members[11].name}, {house.members[17].name}, & {house.members[21].name}</li>
+      <div className = "text-color-white">
+        <Link to = "/"><button>Back</button></Link>
+        <li>House Ghost: {house.houseGhost}</li>
+        <li>Head of House: {house.headOfHouse}</li>
+        <li>Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>
+        <li>Founder: {house.founder}</li>
+        <li>Mascot: {house.mascot}</li>
+        <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
+        <li>House members:
+          <ul>
+          {house.members.map((member) => (
 
-      </div>  //{this.state.result[0]}</div>
+            <li key={member._id}>
+              <Link to= {`/member/${member._id}`}>{member.name}</Link>
+            </li>
+            ))}
+          </ul>
+        </li>
+      </div>
 
     );
   }

@@ -61,9 +61,16 @@ class Slytherin extends Component {
       <li>Founder: {house.founder}</li>
       <li>Mascot: {house.mascot}</li>
       <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
-      <li>House members: {house.members[7].name}, {house.members[10].name}, {house.members[15].name}, {house.members[18].name}, & {house.members[20].name} </li>
+      <li>House members:
+        <ul>
+        {house.members.map((member) => (
 
-
+          <li key={member._id}>
+            <Link to= {`/member/${member._id}`}>{member.name}</Link>
+          </li>
+          ))}
+        </ul>
+      </li>
 
 
       </div>  //{this.state.result[0]}</div>

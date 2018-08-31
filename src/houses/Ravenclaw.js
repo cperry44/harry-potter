@@ -60,8 +60,16 @@ class Ravenclaw extends Component {
       <li>Founder: {house.founder}</li>
       <li>Mascot: {house.mascot}</li>
       <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
-      <li>House members: {house.members[1].name}, {house.members[8].name}, {house.members[10].name}, & {house.members[15].name}</li>
+      <li>House members:
+        <ul>
+        {house.members.map((member) => (
 
+          <li key={member._id}>
+            <Link to= {`/member/${member._id}`}>{member.name}</Link>
+          </li>
+          ))}
+        </ul>
+      </li>
 
 
 
