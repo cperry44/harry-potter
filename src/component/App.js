@@ -7,6 +7,8 @@ import Ravenclaw from "../houses/Ravenclaw.js"
 import Hufflepuff from "../houses/Hufflepuff.js"
 import Slytherin from "../houses/Slytherin.js"
 import '../index.css';
+import Sound from "react-sound"
+import MyComponentWithSound from "../Sound.js"
 
 const App = () => (
   <div>
