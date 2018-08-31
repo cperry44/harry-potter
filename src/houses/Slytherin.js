@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 
 
 class Slytherin extends Component {
@@ -52,7 +53,8 @@ class Slytherin extends Component {
 
     let house = this.state.result[0]
     return (
-      <div>
+      <div class= "text-color-white">
+      <Link to = "/"><button>Back</button></Link>
       <li>House Ghost: {house.houseGhost}</li>
       <li>Head of House: {house.headOfHouse}</li>
       <li>Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>

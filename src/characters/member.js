@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 
 
-class Gryffindor extends Component {
+//the API has unique IDs for characters,
+//so routes for characters are bypassing
+//the house components & going straight through the App
+//this is not best practice LOL
+
+class Member extends Component {
 
   constructor(props) {
     super(props);
@@ -38,7 +44,7 @@ class Gryffindor extends Component {
     //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
     // });
 
-    this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
+    this.fetchFirst("https://www.potterapi.com/v1/characters")
     console.log(this.state);
     // debugger;
   }
@@ -52,19 +58,14 @@ class Gryffindor extends Component {
 
     let house = this.state.result[0]
     return (
-      <div>
-      <li>House Ghost: {house.houseGhost}</li>
-      <li>Head of House: {house.headOfHouse}</li>
-      <li>Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>
-      <li>Founder: {house.founder}</li>
-      <li>Mascot: {house.mascot}</li>
-      <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
-      <li>House members: {house.members[2].name}, {house.members[7].name}, {house.members[9].name}, {house.members[11].name}, {house.members[17].name}, & {house.members[21].name}</li>
-
+      <div class = "text-color-white">
+      <Link to = "/"><button>Back</button></Link>
+      <li>Sirius Black</li>
+      <li>
       </div>  //{this.state.result[0]}</div>
 
     );
   }
 }
 
-export default Gryffindor;
+export default Member;

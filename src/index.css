@@ -1,13 +1,7 @@
-h1 {
-  color: white;
-}
-
 #body {
   background-image: url("https://wallpaper-house.com/data/out/8/wallpaper2you_245219.jpg");
   width: 100%;
   height:100vh;
-
-
 }
 
 img {
@@ -22,20 +16,21 @@ img {
 
 }
 
+#Slytherin {
+  float: right;
+}
+
 #Gryffindor {
-  float: left;
+  float:left;
 }
 
 #Ravenclaw {
+
   float: left;
 }
 
 #Hufflepuff{
-float: left;
-}
-
-#Slytherin {
-  float: left;
+float:right;
 }
 
 .text-color-white {

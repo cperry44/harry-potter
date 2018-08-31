@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 import axios from "axios";
-import Gryffindor from "./houses/Gryffindor.js"
-import Ravenclaw from "./houses/Ravenclaw.js"
-import Hufflepuff from "./houses/Hufflepuff.js"
-import Slytherin from "./houses/Slytherin.js"
+import Gryffindor from "../houses/Gryffindor.js"
+import Ravenclaw from "../houses/Ravenclaw.js"
+import Hufflepuff from "../houses/Hufflepuff.js"
+import Slytherin from "../houses/Slytherin.js"
+import Member from "../characters/member.js"
 import '../index.css';
 
 const App = () => (
@@ -22,6 +23,7 @@ const Main = () => (
       <Route exact path='/2' component={Ravenclaw}/>
       <Route exact path='/3' component={Hufflepuff}/>
       <Route exact path='/4' component={Slytherin}/>
+      <Route path='/member/:id' component={Member}/>
     </Switch>
   </main>
 )
@@ -29,9 +31,9 @@ const Main = () => (
 //==============================================================================
 
 const Houses = () => (
-  <div>
+  <div class = "text-color-white" >
       <h1 id="title">Harry Potter Yearbook</h1>
-      <ul id="text-color-white" >
+      <ul class="text-color-white" >
         {
           HarryPotterAPI.all().map(h => (
             <li key={h.name} id={h.name}>
@@ -49,14 +51,22 @@ const HouseView = (props) => {
   let house = HarryPotterAPI.get(
     parseInt(props.match.params.number, 10)
   )
+  console.log(house)
+  let sorting = "hat"
+
+  switch (house.name) {
+    case "Ravenclaw": let sorting = "hello"; break;
+  }
+
   if (!house) {
     return <div>Back off, Muggle! There are only four Hogwarts Houses</div>
   }
   return (
-  <div>
-    <Link to = "/">Back</Link>
-    <li>{house.name}</li>
-    <Gryffindor />
+  <div class = "text-color-white">
+    <Link to = "/"><button>Back</button></Link>
+    <h1>{house.name}</h1>
+    <p><img src= {house.image} /></p>
+
   </div>
   )
 }
@@ -77,14 +87,6 @@ const HarryPotterAPI = {
     return this.houses.find(isHouse)
   }
 }
-
-
-
-
-
-
-
-
 
 
 export default App;

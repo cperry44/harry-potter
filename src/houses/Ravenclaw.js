@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
+import { BrowserRouter, Switch, Router, Route, Link } from 'react-router-dom'
 
-
-class Hufflepuff extends Component {
+class Ravenclaw extends Component {
 
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ class Hufflepuff extends Component {
     //   result: this.fetchFirst("https://www.potterapi.com/v1/houses/5a05e2b252f721a3cf2ea33f")
     // });
 
-    this.fetchFirst("https://www.potterapi.com/v1/houses/5a05dc58d45bd0a11bd5e070")
+    this.fetchFirst("https://www.potterapi.com/v1/houses/5a05da69d45bd0a11bd5e06f")
     console.log(this.state);
     // debugger;
   }
@@ -52,14 +52,15 @@ class Hufflepuff extends Component {
 
     let house = this.state.result[0]
     return (
-      <div>
+      <div class = "text-color-white">
+      <Link to = "/"><button>Back</button></Link>
       <li>House Ghost: {house.houseGhost}</li>
       <li>Head of House: {house.headOfHouse}</li>
       <li>Values: {house.values[0]}, {house.values[1]}, {house.values[2]}, & {house.values[3]}</li>
       <li>Founder: {house.founder}</li>
       <li>Mascot: {house.mascot}</li>
       <li>House colors: {house.colors[0]} & {house.colors[1]}</li>
-      <li>House members: {house.members[3].name}, {house.members[7].name}, {house.members[12].name}, & {house.members[13].name}</li>
+      <li>House members: {house.members[1].name}, {house.members[8].name}, {house.members[10].name}, & {house.members[15].name}</li>
 
 
 
@@ -70,4 +71,4 @@ class Hufflepuff extends Component {
   }
 }
 
-export default Hufflepuff;
+export default Ravenclaw;
