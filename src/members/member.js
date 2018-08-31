@@ -58,15 +58,19 @@ class Member extends Component {
     }
 
     let member = this.state.result
+    console.log(member);
     return (
+
       <div class = "text-color-white">
-      <Link to = "/"><button>Back</button></Link>
+      <Link to = '/'><button>Back</button></Link>
       <li>Name: {member.name}</li>
       <li>Alias: {member.alias}</li>
       <li>Member of Order of the Phoenix? {member.orderOfThePhoenix ? 'yes':'no'}</li>
       <li>Member of Dumbledore's Army? {member.dumbledoresArmy ? 'yes':'no'}</li>
       <li>Death Eater? {member.deathEater ? 'yes':'no'}</li>
       <li>Ministry of Magic Employee? {member.ministryOfMagic ? 'yes':'no'}</li>
+      
+
       </div>
     );
   }

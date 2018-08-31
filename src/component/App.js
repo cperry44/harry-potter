@@ -19,10 +19,10 @@ const Main = () => (
   <main id="body" >
     <Switch>
       <Route exact path='/' component={Houses}/>
-      <Route path='/1' component={Gryffindor}/>
-      <Route path='/2' component={Ravenclaw}/>
-      <Route path='/3' component={Hufflepuff}/>
-      <Route path='/4' component={Slytherin}/>
+      <Route path='/Gryffindor' component={Gryffindor}/>
+      <Route path='/Ravenclaw' component={Ravenclaw}/>
+      <Route path='/hufflepuff' component={Hufflepuff}/>
+      <Route path='/Slytherin' component={Slytherin}/>
       <Route path='/member/:id' component={Member}/>
     </Switch>
   </main>
@@ -37,7 +37,7 @@ const Houses = () => (
         {
           HarryPotterAPI.all().map(h => (
             <li key={h.name} id={h.name}>
-              <Link to={`/${h.number}`}><img src={h.image} /></Link>
+              <Link to={`/${h.name}`}><img src={h.image} /></Link>
               <h3>{h.name}</h3>
             </li>
           ))
@@ -47,29 +47,7 @@ const Houses = () => (
 )
 //==============================================================================
 
-const HouseView = (props) => {
-  let house = HarryPotterAPI.get(
-    parseInt(props.match.params.number, 10)
-  )
-  console.log(house)
-  let sorting = "hat"
 
-  switch (house.name) {
-    case "Ravenclaw": let sorting = "hello"; break;
-  }
-
-  if (!house) {
-    return <div>Back off, Muggle! There are only four Hogwarts Houses</div>
-  }
-  return (
-  <div class = "text-color-white">
-    <Link to = "/"><button>Back</button></Link>
-    <h1>{house.name}</h1>
-    <p><img src= {house.image} /></p>
-
-  </div>
-  )
-}
 
 //==============================================================================
 // hardcode for practice
