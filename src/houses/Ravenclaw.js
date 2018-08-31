@@ -8,7 +8,7 @@ class Ravenclaw extends Component {
     super(props);
 
     this.state = {
-      house: []
+      house: {}
     };
   }
 
@@ -19,33 +19,22 @@ class Ravenclaw extends Component {
       fetch(url + "?" + "key=" + key)
       .then(function (response) {
         return response.json();
-      })
-
-      .then(function (result) {
-        console.log(result);
+      }).then(function (result) {
+        console.log(result[0]);
+        that.setState({
+          house: result[0]
+        });
       });
     }
   }
 
-  componentdidMount() {
-
-  this.fetchFirst("https://www.potterapi.com/v1/houses/5a05da69d45bd0a11bd5e06f");
-
-    render() {
-      return (
-
-           <div>
-             <h1>hello</h1>
-           </div>
-      );
-    }
+  componentWillMount() {
+      this.fetchFirst("https://www.potterapi.com/v1/houses/5a05da69d45bd0a11bd5e06f");
   }
-
-
- }
-
-
-
+  render() {
+    return <h1>{this.state.house.name}</h1>
+  }
+}
 
 
 export default Ravenclaw;
