@@ -14,7 +14,7 @@ class Gryffindor extends Component {
   }
 
   fetchFirst(url) {
-    var key = "$2a$10$AOw4tITLgAk.0XHRvE2dPOpSI4xJMRF24or9b/JRUE78PlFy2wM06";
+    // var key = "$2a$10$AOw4tITLgAk.0XHRvE2dPOpSI4xJMRF24or9b/JRUE78PlFy2wM06";
     var that = this;
     if (url) {
       fetch(url + "?" + "key=" + key)

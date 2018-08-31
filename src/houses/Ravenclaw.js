@@ -32,7 +32,14 @@ class Ravenclaw extends Component {
       this.fetchFirst("https://www.potterapi.com/v1/houses/5a05da69d45bd0a11bd5e06f");
   }
   render() {
-    return <div>result:{this.state.house.name}</div>
+    return (
+    <div>
+      result:{this.state.house.name}
+      result:{this.state.house.headOfHouse},
+      result:{this.state.house.houseGhost},
+      result:{this.state.house.founder},
+    </div>
+    )
   }
 }
 
